@@ -1,1 +1,2 @@
-doccano.db
+./doccano.db
+./.gitignore
