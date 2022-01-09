@@ -1,0 +1,1 @@
+twint -s "omicron lang:id" --limit 10000 -o omicron2.csv --csv
