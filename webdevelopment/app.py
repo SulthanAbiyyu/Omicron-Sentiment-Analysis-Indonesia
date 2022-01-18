@@ -1,10 +1,10 @@
 from flask import Flask,render_template,request
-from ModelPipeline import Modelpipeline
+from ModelPipeline import ModelPipeline
 
 app = Flask(__name__,template_folder="templates")
 
 def process_ml(teks) :
-    from ModelPipeline import ModelPipeline
+
     MODEL_PATH = "../model/omicron-sentiment-analysis-indo.h5"
     TOKENIZER_PATH = "../model/tokenizer_without_stopwords.pkl"
     MAX_LENGTH = 35
