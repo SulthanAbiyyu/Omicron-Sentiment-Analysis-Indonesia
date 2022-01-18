@@ -1,0 +1,3 @@
+0: Negative
+1: Positive
+2: Neutral
