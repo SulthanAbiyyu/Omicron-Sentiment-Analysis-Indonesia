@@ -1,7 +1,6 @@
 import re
 from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
 from Sastrawi.StopWordRemover.StopWordRemoverFactory import StopWordRemoverFactory
-from nltk import word_tokenize
 import pandas as pd
 
 
@@ -57,7 +56,7 @@ class TextCleaning:
         for index, row in kamus_alay.iterrows():
             dict_alay[row['slang']] = row['formal']
 
-        word_tokens = word_tokenize(self.data)
+        word_tokens = self.data.split()
         result = [dict_alay.get(x, x) for x in word_tokens]
         return ' '.join(result)
 
