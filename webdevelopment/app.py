@@ -1,8 +1,8 @@
 from flask import Flask, render_template, request
 from ModelPipeline import ModelPipeline
+import time
 
 app = Flask(__name__, template_folder="templates")
-
 
 def process_ml(teks):
     MODEL_PATH = "./model/omicron-sentiment-analysis-indo.h5"
@@ -18,13 +18,17 @@ def process_ml(teks):
         return "Negative"
 
 
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    answer = "None"
+    time_now = time.time()
+    answer = "Belum Ada"
     if request.method == 'POST':
-        input_teks = request.form['teksmasuk']
+        input_teks = request.form['input']
         answer = process_ml(input_teks)
-    return render_template("index.html", p=answer)
+    time_end = time.time() - time_now
+    time_end = '{:.3f}'.format(time_end)    
+    return render_template("index.html", p=answer, t=time_end)
 
 
 if __name__ == '__main__':
