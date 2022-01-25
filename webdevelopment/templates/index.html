@@ -23,23 +23,27 @@
             dalam tentang proses analisis sentimen hingga deploying dengan platform web. Model kami hanya berhasil memperoleh skor f1 sebesar 70% menggunakan pendekatan LSTM Bidirectional dan tuning dengan Keras Tuner. Kedepannya diharapkan
             bisa meningkatkan skor f1 menjadi lebih dari 80%.
           </p>
-          <form action="\" method = "POST">
+          <form action="\" method = "POST" id="form">
             <!-- text area -->
             <div class="form-floating mt-4 col-md-8 mx-auto">
-              <input id="floatingTextarea2" name = "input" type="text" class="form-control" placeholder="sentimen" style="height: 90px" >
+              <input id="floatingTextarea2" name = "input" type="text" class="form-control" placeholder="sentimen" style="height: 90px" required>
               <label for="floatingTextarea2" style="font-size: 13px;font-family: 'Poppins'">Pendapat anda tentang omicron</label>
             </div>
             <!-- Button dkk -->
-            <div class="col-md-8 mx-auto d-md-flex justify-content-between align-items-center">
-              <div class="button mt-4">
+            <div class="col-md-8 mx-auto d-md-flex justify-content-between mt-4">
+              <div class="button">
                 <div class="button-dalam">
                   <input type="submit" class="btn btn-primary">
-                  <button class="btn btn-primary reset" id="resetButton">Reset</button>
+                  <button class="btn btn-primary reset" type="reset" id="resetButton">Reset</button>
                 </div>            
-                <p class="mt-2 ms-1">{{t}} s</p> 
+                <div class="d-flex align-items-center mt-4">
+                  <p class="mb-0" style="margin-right: 12px">{{t}} s</p>
+                  <div class="loader" id="loader">
+                  </div> 
+                </div>
               </div>
-              <h5 class="hasil mt-md-0 mt-3" id = "hasil">Hasil: {{p}}</h5>
-          </div>
+              <h5 class="hasil mt-4 mt-md-0" id = "hasil">Hasil: {{p}}</h5>
+            </div>
           <h6 class="col-md-8 mx-auto mt-4">Penjelasan tentang hasil yang didapat:</h6>
           <h6 class="col-md-8 mx-auto">Negatif</h6>
           <p class="col-md-8 mx-auto">Disebabkan komentar yang kita masukkan menyalahkan pihak tertentu karena Omicron menyebar
@@ -109,6 +113,12 @@
       const btnRestart = document.getElementById("resetButton"); 
       btnRestart.addEventListener('click', () => {
           result.innerText = "Hasil: Belum Ada";
+      })
+
+      const form  = document.getElementById('form');
+      const loader = document.getElementById('loader');
+      form.addEventListener('submit',()=>{
+          loader.style.display = 'block'
       })
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">    </script>
