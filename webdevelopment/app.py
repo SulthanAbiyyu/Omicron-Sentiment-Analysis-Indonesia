@@ -24,7 +24,9 @@ def index():
     time_now = time.time()
     answer = "Belum Ada"
     if request.method == 'POST':
-        input_teks = request.form['input']
+        # input_teks = request.form.get("pendapat")
+        # get the input from the form with json
+        input_teks = request.form.get("pendapat")
         answer = process_ml(input_teks)
     time_end = time.time() - time_now
     time_end = '{:.3f}'.format(time_end)
