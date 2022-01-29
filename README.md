@@ -23,4 +23,4 @@ MIT License (c) 2022 Omicron-Sentiment-Analysis-Indonesia
 - [Sulthan Abiyyu](https://www.github.com/SulthanAbiyyu)
 - [Ali Zulfikar](https://www.github.com/alizul01)
 - [Aditya Rizky](https://github.com/adityarizkyramadhan)
-- 
+- [Muhammad Ubaidillah](https://github.com/Devvevan)
